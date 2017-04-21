@@ -50,7 +50,8 @@ public class IndicesGetAllMessageFieldsTest extends AbstractESTest {
 
     @Before
     public void setUp() throws Exception {
-        indices = new Indices(client(), new IndexMapping(), new Messages(new MetricRegistry(), jestClient(), client()), mock(NodeId.class), new NullAuditEventSender());
+        super.setUp();
+        indices = new Indices(client(), jestClient(), new IndexMapping(), new Messages(new MetricRegistry(), jestClient(), client()), mock(NodeId.class), new NullAuditEventSender());
     }
 
     @Test

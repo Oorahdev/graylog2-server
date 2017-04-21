@@ -65,7 +65,7 @@ public class IndexCreatingDatabaseOperation implements DatabaseOperation<Client>
             }
 
             final Messages messages = new Messages(new MetricRegistry(), jestClient, client);
-            final Indices indices = new Indices(client, new IndexMapping(), messages, mock(NodeId.class), new NullAuditEventSender());
+            final Indices indices = new Indices(client, jestClient, new IndexMapping(), messages, mock(NodeId.class), new NullAuditEventSender());
 
             if (!indices.create(index, indexSet)) {
                 throw new IllegalStateException("Couldn't create index " + index);
